@@ -7,15 +7,22 @@ import { HttpClientModule } from "@angular/common/http";
 import { GitSearchService } from "./git-search.service";
 import { GitSearchComponent } from './git-search/git-search.component';
 
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { HomePageComponent } from './home-page/home-page.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+
 @NgModule({
   declarations: [
     AppComponent,
-    GitSearchComponent
+    GitSearchComponent,
+    HomePageComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [GitSearchService],
   bootstrap: [AppComponent]
