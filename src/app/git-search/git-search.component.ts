@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { GitSearchService } from '../git-search.service'
+import { UnifiedSearchService } from '../unified-search.service'
 import { GitSearch } from '../git-search'
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { AdvancedSearchModel } from "../advanced-search-model";
-import { stringify } from '@angular/core/src/render3/util';
+
 
 @Component({
   selector: 'app-git-search',
@@ -19,7 +19,7 @@ export class GitSearchComponent implements OnInit {
   model = new AdvancedSearchModel('','','',null,null,'');
   modelkeys = Object.keys(this.model);
 
-  constructor(private GitSearchService: GitSearchService, private route: ActivatedRoute, private router: Router ) { }
+  constructor(private UnifiedSearchService: UnifiedSearchService, private route: ActivatedRoute, private router: Router ) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe( (params: ParamMap) => {
@@ -33,8 +33,9 @@ export class GitSearchComponent implements OnInit {
   }
 
   gitSearch = () => {
-    this.GitSearchService.gitSearch(this.searchQuery).subscribe( (response) => {
-      this.searchResults = response;
+    this.UnifiedSearchService.unifiedSearch(this.searchQuery).subscribe( (response) => {
+      console.log(response);
+      this.searchResults = response.repositories;
     }, (error) => {
       alert("Error: " + error.statusText)
     })
