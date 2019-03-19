@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { GitCodeSearch } from "./git-code-search";
 import { HttpClient } from "@angular/common/http";
-import { Observable } from "rxjs/observable";
+import { Observable } from "/Users/ahmadmursaleen/medimove/angular-fundamentals/node_modules/rxjs/internal/Observable";
 
 
 import "rxjs/add/operator/publishReplay";
@@ -24,8 +24,7 @@ export class GitCodeSearchService {
     }
     if (!this.search) {
       this.search = this.http.get<GitCodeSearch>('https://api.github.com/search/code?q=' + query)
-        .publishReplay(1)
-        .refCount();
+        .publishReplay(1).refCount();
       this.cachedValue = query;
     }
     else if (this.cachedValue !== query) {
