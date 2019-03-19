@@ -15,6 +15,7 @@ export class GitSearchComponent implements OnInit {
   searchQuery: string;
   displayQuery: string;
   title: string;
+  favorites: Array<number> = [];
 
   model = new AdvancedSearchModel('','','',null,null,'');
   modelkeys = Object.keys(this.model);
@@ -39,6 +40,14 @@ export class GitSearchComponent implements OnInit {
     }, (error) => {
       alert("Error: " + error.statusText)
     })
+  }
+  
+  checkType = (key) => {
+    return typeof key === 'string' ? 'text' : typeof key;
+  }
+  
+  handleFavorite = (id) => {
+    return this.favorites.push(id);
   }
 
   sendQuery = () => {
