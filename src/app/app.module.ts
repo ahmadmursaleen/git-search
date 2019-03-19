@@ -15,6 +15,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { NoSpecialCharsDirective } from './no-special-chars.directive';
 import { RepositoryDisplayComponent } from './repository-display/repository-display.component';
 import { CodeDisplayComponent } from './code-display/code-display.component';
+import { FadeDirective } from './fade.directive';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { CodeDisplayComponent } from './code-display/code-display.component';
     NotFoundComponent,
     NoSpecialCharsDirective,
     RepositoryDisplayComponent,
-    CodeDisplayComponent
+    CodeDisplayComponent,
+    FadeDirective
   ],
   imports: [
     BrowserModule,
