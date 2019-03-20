@@ -7,6 +7,8 @@ import { environment } from './environments/environment';
 if (environment.production) {
   enableProdMode();
 }
-
+else {
+  alert ("App is running in the dev mode ");
+}
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));
